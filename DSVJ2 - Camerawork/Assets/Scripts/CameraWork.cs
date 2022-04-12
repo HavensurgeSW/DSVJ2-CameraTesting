@@ -17,11 +17,12 @@ public class CameraWork : MonoBehaviour
             roofHits.Add(hitInfo);
         }
 
-        if (roofHits.Count > 0 && !Physics.Linecast(this.transform.position, playerCam.position, out RaycastHit hits, terrainLayer)) {
+        if (roofHits.Count > 0 && !Physics.Linecast(this.transform.position, playerCam.position, terrainLayer)) {
             for (int i = 0; i < roofHits.Count; i++)
             {
-                roofHits[i].collider.gameObject.GetComponent<MeshRenderer>().material = oldMat;
+                roofHits[i].collider.gameObject.GetComponent<MeshRenderer>().material = oldMat; 
             }
+            roofHits.Clear();
         }
     }
  }
